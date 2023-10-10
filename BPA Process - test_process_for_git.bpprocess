@@ -1,0 +1,18 @@
+﻿<process name="test_process_for_git" version="1.0" bpversion="7.2.1.7446" narrative="Tämä on testiprosessi versionhallinnan testausta varten. Tämän saa poistaa ja korvata oikealla prosessilla." byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="44c5dfde-b4c0-4963-b69c-e6b73b9b0d66">
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <stage stageid="9251afbe-91e0-474c-b89b-151c943918ba" name="Start" type="Start">
+    <display x="15" y="-105" />
+  </stage>
+  <stage stageid="c01034e4-7770-4fe9-8718-5ec8d35af8ba" name="End" type="End">
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="dea4bd83-19c0-4753-b3eb-b97ad03d0bf2" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+</process>
