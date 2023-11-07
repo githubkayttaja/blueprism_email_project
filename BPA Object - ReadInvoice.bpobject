@@ -1071,8 +1071,8 @@
   <subsheet subsheetid="35331b6e-f21b-4011-8dc3-0117c814ca7a" type="Normal" published="False">
     <name>Action 1</name>
     <view>
-      <camerax>354</camerax>
-      <cameray>0</cameray>
+      <camerax>283</camerax>
+      <cameray>-17</cameray>
       <zoom version="2">1.25</zoom>
     </view>
   </subsheet>
@@ -1121,17 +1121,6 @@
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <display x="-195" y="-105" w="150" h="90" />
   </stage>
-  <stage stageid="5c0bba38-dce3-4a22-b99e-67872dd130e8" name="Start" type="Start">
-    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <loginhibit />
-    <display x="105" y="-180" />
-    <onsuccess>6f168a2c-cf30-49ac-b9c5-ff105b2c3039</onsuccess>
-  </stage>
-  <stage stageid="291632c6-ba98-4aec-94fd-40cb87e0e2a5" name="End" type="End">
-    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <loginhibit />
-    <display x="105" y="165" />
-  </stage>
   <stage stageid="edf1d1a0-fc86-4ab4-ac0d-f1db41e7c444" name="" type="Note">
     <subsheetid>afba0535-ac7b-40a6-b149-08d5caf2ae05</subsheetid>
     <narrative>Clean Up Page
@@ -1153,11 +1142,11 @@ The initialise action will be called automatically immediately after loading you
 You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
     <display x="-180" y="60" w="180" h="230" />
   </stage>
-  <stage stageid="6f168a2c-cf30-49ac-b9c5-ff105b2c3039" name="Open PDF" type="Navigate" interval="0.1">
+  <stage stageid="6f168a2c-cf30-49ac-b9c5-ff105b2c3039" name="Open PDF" type="Navigate">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="105" y="-120" />
-    <onsuccess>e4387f42-9678-4013-a19a-6e93ecf2efbb</onsuccess>
+    <display x="255" y="90" />
+    <onsuccess>56e40f93-8550-4f93-b621-002d2ba6daee</onsuccess>
     <step>
       <element id="01bc884e-a5d4-4207-a108-9bf1db2c5b82" />
       <action>
@@ -1165,7 +1154,7 @@ You will not be able to call this action from a business process, nor will it be
         <arguments>
           <argument>
             <id>CommandLineParams</id>
-            <value>[Path]</value>
+            <value>[FoundInvoices.Path]</value>
           </argument>
           <argument>
             <id>Path</id>
@@ -1188,26 +1177,11 @@ You will not be able to call this action from a business process, nor will it be
       </action>
     </step>
   </stage>
-  <stage stageid="fa625353-b02b-4165-a1b3-dcafebb1fc54" name="PDF has now opened" type="WaitEnd">
-    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <loginhibit />
-    <display x="105" y="30" w="60" h="60" />
-    <onsuccess>56e40f93-8550-4f93-b621-002d2ba6daee</onsuccess>
-    <groupid>aff8db84-e518-4d37-b8af-cb103524ec46</groupid>
-  </stage>
-  <stage stageid="e4387f42-9678-4013-a19a-6e93ecf2efbb" name="Wait for PDF to Open" type="WaitStart">
-    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <loginhibit />
-    <display x="105" y="-45" w="60" h="60" />
-    <groupid>aff8db84-e518-4d37-b8af-cb103524ec46</groupid>
-    <choices />
-    <timeout>1</timeout>
-  </stage>
   <stage stageid="56e40f93-8550-4f93-b621-002d2ba6daee" name="Read Data from PDF" type="Read">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="105" y="105" />
-    <onsuccess>291632c6-ba98-4aec-94fd-40cb87e0e2a5</onsuccess>
+    <display x="345" y="90" />
+    <onsuccess>c2bd548b-9296-4c04-ac43-1eff5c21125e</onsuccess>
     <step stage="InvoiceID">
       <element id="d789c0d9-4a7b-4193-bc12-e55d0dc8011a" />
       <action>
@@ -1414,7 +1388,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="a361d9e9-6953-4c1e-a3e9-765f8c171299" name="InvoiceID" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="195" y="105" />
+    <display x="570" y="-165" />
     <datatype>number</datatype>
     <initialvalue />
     <private />
@@ -1422,7 +1396,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="f232f09c-8bdc-4dfc-9637-e184e633d966" name="CustomerName" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="255" y="105" />
+    <display x="630" y="-165" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -1430,7 +1404,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="13d27e1e-53d9-4a30-9961-8783937beb44" name="CustomerAddress" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="315" y="105" />
+    <display x="690" y="-165" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -1438,7 +1412,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="14baed49-1cfa-4217-886c-0da8328cee19" name="CustomerPhone" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="375" y="105" />
+    <display x="750" y="-165" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -1446,7 +1420,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="4caf31b7-9965-4326-86c0-25a7d632083d" name="InvoiceDescription" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="435" y="105" />
+    <display x="810" y="-165" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -1454,19 +1428,223 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="6f14c914-5b72-43e6-a34e-b095ccf20943" name="TotalCost" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="495" y="105" />
+    <display x="870" y="-165" />
     <datatype>number</datatype>
     <initialvalue />
     <private />
     <alwaysinit />
   </stage>
-  <stage stageid="a05ba6b7-3530-4c00-bcc9-89584586fe94" name="Path" type="Data">
+  <stage stageid="28518835-c0fc-4b33-9d21-1f6d403e7521" name="Start" type="Start">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <loginhibit />
-    <display x="225" y="-120" />
+    <display x="-150" y="0" />
+    <onsuccess>1bce7162-ac44-4802-9c4c-830dbb94363d</onsuccess>
+  </stage>
+  <stage stageid="b2ae5b65-8367-47c3-9ffb-010a0e82477f" name="Setup" type="Action">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-255" />
+    <inputs>
+      <input type="text" name="Username" friendlyname="Username" narrative="The POP3 and SMTP Username" expr="[Username]" />
+      <input type="password" name="Password" friendlyname="Password" narrative="The POP3 and SMTP Password" expr="[App Password]" />
+      <input type="text" name="POP3 Server" friendlyname="POP3 Server" narrative="The POP3 Server address e.g. pop.domain.com" expr="&quot;pop.gmail.com&quot;" />
+      <input type="text" name="SMTP Server" friendlyname="SMTP Server" narrative="The SMTP Server address e.g. smtp.domain.com" expr="&quot;smtp.gmail.com&quot;" />
+      <input type="number" name="POP3 Port" friendlyname="POP3 Port" narrative="The POP3 Port, e.g. 110 or 995" expr="995" />
+      <input type="number" name="SMTP Port" friendlyname="SMTP Port" narrative="The SMTP Port, e.g 25 or 465" expr="587" />
+      <input type="flag" name="POP3 UseSSL" friendlyname="POP3 UseSSL" narrative="Whether to use SSL for POP3" expr="True" />
+      <input type="flag" name="SMTP UseSSL" friendlyname="SMTP UseSSL" narrative="Whether to use SSL for SMTP" expr="True" />
+    </inputs>
+    <onsuccess>918b945e-a4fc-4f2b-a772-621450fe75b1</onsuccess>
+    <resource object="Email - POP3/SMTP" action="Configure" />
+  </stage>
+  <stage stageid="723b273e-63b5-4204-b70e-93ac65ab4b72" name="Username" type="Data">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-315" />
     <datatype>text</datatype>
-    <initialvalue xml:space="preserve">D:\blueprism_tyo\lasku_1.pdf</initialvalue>
+    <initialvalue xml:space="preserve">ramonemarkku@gmail.com</initialvalue>
     <private />
     <alwaysinit />
+  </stage>
+  <stage stageid="80c955c1-2d11-4aa4-9e61-1532e99f9c59" name="App Password" type="Data">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-360" />
+    <datatype>password</datatype>
+    <initialvalueenc>42,25,1,71,77,76,18,21,44,85,14,84,9,76,84,7,47,20,7</initialvalueenc>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="918b945e-a4fc-4f2b-a772-621450fe75b1" name="List messages" type="Action">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="90" y="-255" />
+    <outputs>
+      <output type="collection" name="Emails" friendlyname="Emails" stage="Emails" />
+    </outputs>
+    <onsuccess>c7bd4ba9-2ac3-45a9-9be3-75af88131a2e</onsuccess>
+    <resource object="Email - POP3/SMTP" action="List Messages" />
+  </stage>
+  <stage stageid="dca74dcf-0a67-4dea-a5c1-240273ed9b3f" name="Emails" type="Collection">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <display x="240" y="-315" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Subject" type="text" description="The subject of the email." />
+      <field name="From Name" type="text" description="The name of the sender." />
+      <field name="From Address" type="text" description="The email address of the sender." />
+      <field name="Date Sent" type="datetime" description="The date and time at which the email was sent." />
+      <field name="MessageID" type="text" description="The ID of the email message." />
+    </collectioninfo>
+  </stage>
+  <stage stageid="c7bd4ba9-2ac3-45a9-9be3-75af88131a2e" name="Loop Start1" type="LoopStart">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="165" y="-255" />
+    <onsuccess>5d4d9598-4e51-4110-9c73-8b79f3d80695</onsuccess>
+    <groupid>660b77b5-a3ac-44c0-aad2-9add91de5813</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Emails</loopdata>
+  </stage>
+  <stage stageid="202a229d-fd35-4b14-9aad-744b03ea051d" name="Loop End1" type="LoopEnd">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="315" y="-255" />
+    <onsuccess>f810a5d2-35dd-469e-8423-17c34c9fa9fb</onsuccess>
+    <groupid>660b77b5-a3ac-44c0-aad2-9add91de5813</groupid>
+  </stage>
+  <stage stageid="5d4d9598-4e51-4110-9c73-8b79f3d80695" name="Save Attachments" type="Action">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="240" y="-255" />
+    <inputs>
+      <input type="text" name="MessageID" friendlyname="MessageID" narrative="The ID of the email message." expr="[Emails.MessageID]" />
+      <input type="text" name="Folder" friendlyname="Folder" narrative="A Folder in which to save all the attachments." expr="[AttachmentPath]" />
+    </inputs>
+    <onsuccess>202a229d-fd35-4b14-9aad-744b03ea051d</onsuccess>
+    <resource object="Email - POP3/SMTP" action="Save Attachments" />
+  </stage>
+  <stage stageid="f810a5d2-35dd-469e-8423-17c34c9fa9fb" name="End1" type="End">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="315" y="-195" />
+  </stage>
+  <stage stageid="1bce7162-ac44-4802-9c4c-830dbb94363d" name="Get Attachments From Folder" type="Action">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-45" y="0" />
+    <inputs>
+      <input type="text" name="Folder" friendlyname="Folder" narrative="The folder in which to look for files" expr="[AttachmentPath]" />
+      <input type="text" name="Patterns CSV" friendlyname="Patterns CSV" narrative="The comma seperated list of wildcard patterns" expr="[Pattern]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="True if successful" stage="" />
+      <output type="text" name="Message" friendlyname="Message" narrative="A message if unsuccessful" stage="" />
+      <output type="collection" name="Files" friendlyname="Files" narrative="The collection of files found" stage="FoundInvoices" />
+    </outputs>
+    <onsuccess>39ad39b7-1c9c-47af-a57c-96074046cb11</onsuccess>
+    <resource object="Utility - File Management 64bit" action="Get Files" />
+  </stage>
+  <stage stageid="6e6c0ce2-2c59-48dc-ac7a-a5a953b2e465" name="Pattern" type="Data">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="660" y="-210" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">*.pdf</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="17fedba3-af4b-414c-bb45-3286cfbc97aa" name="AttachmentPath" type="Data">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="735" y="-210" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">D:\blueprism_tyo\attachments</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="be92cb17-d304-41a5-ad48-2b06cbc22e98" name="FoundInvoices" type="Collection">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="810" y="-210" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="a3184ced-6341-4078-99fe-810968834e30" name="Loop Start2" type="LoopStart">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="255" y="0" />
+    <onsuccess>6f168a2c-cf30-49ac-b9c5-ff105b2c3039</onsuccess>
+    <groupid>49f4839b-d045-488f-85ea-a95645c1c2fd</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>FoundInvoices</loopdata>
+  </stage>
+  <stage stageid="cdf9364c-a313-4653-a5b6-89d94c7a75ec" name="Loop End2" type="LoopEnd">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="450" y="0" />
+    <onsuccess>4b1607cc-ce3d-4d9c-9ade-5e4bb6901026</onsuccess>
+    <groupid>49f4839b-d045-488f-85ea-a95645c1c2fd</groupid>
+  </stage>
+  <stage stageid="4b1607cc-ce3d-4d9c-9ade-5e4bb6901026" name="End2" type="End">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="555" y="0" />
+  </stage>
+  <stage stageid="39ad39b7-1c9c-47af-a57c-96074046cb11" name="Utility - Collection Manipulation::Rename Collection Fields" type="Action">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="45" y="0" />
+    <inputs>
+      <input type="collection" name="Main Collection" friendlyname="Main Collection" narrative="The main collection, whose headers are to be modified" expr="[FoundInvoices]" />
+      <input type="collection" name="New Headers" friendlyname="New Headers" narrative="A collection of new headers. This must be a one-row collection matching the fields of the first. The first row will contain the new field names under the corresponding field names" expr="[NewHeaders]" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Amended Collection" friendlyname="Amended Collection" stage="" />
+      <output type="flag" name="Success" friendlyname="Success" stage="" />
+      <output type="text" name="Error Message" friendlyname="Error Message" stage="" />
+    </outputs>
+    <onsuccess>7b813b22-492e-4f3e-9f94-cb51b21c8825</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Rename Collection Fields" />
+  </stage>
+  <stage stageid="7b813b22-492e-4f3e-9f94-cb51b21c8825" name="Utility - Collection Manipulation::Rename Field" type="Action">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="150" y="0" />
+    <inputs>
+      <input type="text" name="Field Name" friendlyname="Field Name" narrative="The name of the existing field to rename." expr="&quot;Path&quot;" />
+      <input type="collection" name="Collection In" friendlyname="Collection In" narrative="The collection to rename a field in." expr="[FoundInvoices]" />
+      <input type="text" name="New Name" friendlyname="New Name" narrative="The new name for the field." expr="&quot;asd&quot;" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Collection Out" friendlyname="Collection Out" narrative="The collection with field renamed." stage="FixedInvoices" />
+    </outputs>
+    <onsuccess>a3184ced-6341-4078-99fe-810968834e30</onsuccess>
+    <resource object="Utility - Collection Manipulation" action="Rename Field" />
+  </stage>
+  <stage stageid="c2bd548b-9296-4c04-ac43-1eff5c21125e" name="Close PDF" type="Navigate">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="450" y="90" />
+    <onsuccess>cdf9364c-a313-4653-a5b6-89d94c7a75ec</onsuccess>
+    <step>
+      <element id="01bc884e-a5d4-4207-a108-9bf1db2c5b82" />
+      <action>
+        <id>SendKeys</id>
+        <arguments>
+          <argument>
+            <id>interval</id>
+            <value>
+            </value>
+          </argument>
+          <argument>
+            <id>newtext</id>
+            <value>"^(W)"</value>
+          </argument>
+        </arguments>
+      </action>
+    </step>
   </stage>
 </process>
