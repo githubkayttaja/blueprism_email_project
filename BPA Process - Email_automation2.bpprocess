@@ -1,0 +1,548 @@
+﻿<process name="Email_automation" version="1.0" bpversion="7.2.1.7446" narrative="" byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="b3176b55-1cd2-4fc5-9780-2f498f5bafda">
+  <view>
+    <camerax>-7</camerax>
+    <cameray>-61</cameray>
+    <zoom version="2">1.875</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="ddc410e7-6e76-4742-b42d-90ca619261cf" type="Normal" published="False">
+    <name>Receiver</name>
+    <view>
+      <camerax>131</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.875</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="96ab6711-d303-426a-9acd-83bc4822eb21" type="Normal" published="False">
+    <name>Database</name>
+    <view>
+      <camerax>-88</camerax>
+      <cameray>-84</cameray>
+      <zoom version="2">1.5625</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="dfc36ee0-5878-4e67-b66f-8e51ae2bd348" name="Start" type="Start">
+    <display x="-285" y="-165" />
+    <onsuccess>382acee4-5ef1-4945-b41f-3ddbd9c4b3b4</onsuccess>
+  </stage>
+  <stage stageid="9fcea537-b172-4597-a620-549564c97e7b" name="End" type="End">
+    <display x="90" y="60" />
+  </stage>
+  <stage stageid="c653835c-5596-4c5b-9e7d-1885bdbab91f" name="Stage1" type="ProcessInfo">
+    <display x="225" y="90" w="150" h="90" />
+  </stage>
+  <stage stageid="382acee4-5ef1-4945-b41f-3ddbd9c4b3b4" name="Setup" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="-120" />
+    <inputs>
+      <input type="text" name="Username" friendlyname="Username" narrative="The POP3 and SMTP Username" expr="[Username]" />
+      <input type="password" name="Password" friendlyname="Password" narrative="The POP3 and SMTP Password" expr="[App Password]" />
+      <input type="text" name="POP3 Server" friendlyname="POP3 Server" narrative="The POP3 Server address e.g. pop.domain.com" expr="&quot;pop.gmail.com&quot;" />
+      <input type="text" name="SMTP Server" friendlyname="SMTP Server" narrative="The SMTP Server address e.g. smtp.domain.com" expr="&quot;smtp.gmail.com&quot;" />
+      <input type="number" name="POP3 Port" friendlyname="POP3 Port" narrative="The POP3 Port, e.g. 110 or 995" expr="995" />
+      <input type="number" name="SMTP Port" friendlyname="SMTP Port" narrative="The SMTP Port, e.g 25 or 465" expr="587" />
+      <input type="flag" name="POP3 UseSSL" friendlyname="POP3 UseSSL" narrative="Whether to use SSL for POP3" expr="True" />
+      <input type="flag" name="SMTP UseSSL" friendlyname="SMTP UseSSL" narrative="Whether to use SSL for SMTP" expr="True" />
+    </inputs>
+    <onsuccess>34a4b099-593f-4bb6-a1f3-0237e2e159ef</onsuccess>
+    <resource object="Email - POP3/SMTP" action="Configure" />
+  </stage>
+  <stage stageid="bd9ec007-211c-466e-87d0-2b7795feb6bb" name="Username" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="105" y="-120" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">ramonemarkku@gmail.com</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="d12d4865-5be5-4393-ae00-298b636d1a00" name="Sending message" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="210" y="-180" />
+    <inputs>
+      <input type="text" name="From" friendlyname="From" narrative="The email address of the sender." expr="[Username]" />
+      <input type="text" name="To" friendlyname="To" narrative="The email address of the recipient. To address multiple recipients use the format &quot;john.smith@example.com, henry.jones@example.com&quot; OR &quot;John Smith &lt;john.smith@example.com&gt;, Henry Jones &lt;henry.jones@example.com&gt;&quot;." expr="[Username]" />
+      <input type="text" name="Subject" friendlyname="Subject" narrative="The subject of the email." expr="&quot;Demo&quot;" />
+      <input type="text" name="Body" friendlyname="Body" narrative="The body of the email." expr="&quot;Hello&quot;" />
+      <input type="collection" name="Attachments" friendlyname="Attachments" narrative="A Collection containing a list of files to add to the email as attachments." expr="[Coll1]" />
+      <input type="flag" name="BodyIsHTML" friendlyname="BodyIsHTML" narrative="Indicates if the body should be sent as HTML" expr="" />
+    </inputs>
+    <resource object="Email - POP3/SMTP" action="Send Message" />
+  </stage>
+  <stage stageid="d5036c62-bb00-49c8-93e7-7f76d0683fee" name="App Password" type="Data">
+    <loginhibit onsuccess="true" />
+    <display x="195" y="0" />
+    <datatype>password</datatype>
+    <initialvalueenc>42,25,1,71,77,76,18,21,44,85,14,84,9,76,84,7,47,20,7</initialvalueenc>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="b94e0270-beea-409d-9b89-11ffa4edf684" name="Coll1" type="Collection">
+    <display x="105" y="-180" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Path" type="text" description="The path to a file to include as an attachment in the email." />
+    </collectioninfo>
+    <initialvalue>
+      <row>
+        <field name="Path" type="text" value="C:\Users\Roope Luokkamäki\Documents\Koulu\Tietoturva sovelluskehityksessä\Viikkotehtävä4\roopeluokkamäki.txt" />
+      </row>
+    </initialvalue>
+  </stage>
+  <stage stageid="b06c8a03-7ded-4ba5-b60d-34b269e42073" name="Receiver" type="SubSheetInfo">
+    <subsheetid>ddc410e7-6e76-4742-b42d-90ca619261cf</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="57e86cba-4cc3-4c7d-aebc-714cf15e3e6d" name="Start" type="Start">
+    <subsheetid>ddc410e7-6e76-4742-b42d-90ca619261cf</subsheetid>
+    <display x="15" y="-105" />
+    <onsuccess>9d92b53f-5cd1-4aa8-9fdd-9b9a98f8ad78</onsuccess>
+  </stage>
+  <stage stageid="1325a150-4e19-4c4e-bb1a-2beb88858aec" name="End" type="End">
+    <subsheetid>ddc410e7-6e76-4742-b42d-90ca619261cf</subsheetid>
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="9d92b53f-5cd1-4aa8-9fdd-9b9a98f8ad78" name="Setup" type="Action">
+    <subsheetid>ddc410e7-6e76-4742-b42d-90ca619261cf</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-45" />
+    <inputs>
+      <input type="text" name="Username" friendlyname="Username" narrative="The POP3 and SMTP Username" expr="[Username]" />
+      <input type="password" name="Password" friendlyname="Password" narrative="The POP3 and SMTP Password" expr="[App Password]" />
+      <input type="text" name="POP3 Server" friendlyname="POP3 Server" narrative="The POP3 Server address e.g. pop.domain.com" expr="&quot;pop.gmail.com&quot;" />
+      <input type="text" name="SMTP Server" friendlyname="SMTP Server" narrative="The SMTP Server address e.g. smtp.domain.com" expr="&quot;smtp.gmail.com&quot;" />
+      <input type="number" name="POP3 Port" friendlyname="POP3 Port" narrative="The POP3 Port, e.g. 110 or 995" expr="995" />
+      <input type="number" name="SMTP Port" friendlyname="SMTP Port" narrative="The SMTP Port, e.g 25 or 465" expr="587" />
+      <input type="flag" name="POP3 UseSSL" friendlyname="POP3 UseSSL" narrative="Whether to use SSL for POP3" expr="True" />
+      <input type="flag" name="SMTP UseSSL" friendlyname="SMTP UseSSL" narrative="Whether to use SSL for SMTP" expr="True" />
+    </inputs>
+    <onsuccess>9518fb90-a726-4ac0-8988-2cf27eca75f6</onsuccess>
+    <resource object="Email - POP3/SMTP" action="Configure" />
+  </stage>
+  <stage stageid="3f692401-035e-4453-8726-425637714819" name="Username" type="Data">
+    <subsheetid>ddc410e7-6e76-4742-b42d-90ca619261cf</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="255" y="-60" />
+    <datatype>text</datatype>
+    <initialvalue xml:space="preserve">ramonemarkku@gmail.com</initialvalue>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ec411c28-06b7-4ee5-9f97-d0537576a711" name="App Password" type="Data">
+    <subsheetid>ddc410e7-6e76-4742-b42d-90ca619261cf</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="270" y="75" />
+    <datatype>password</datatype>
+    <initialvalueenc>42,25,1,71,77,76,18,21,44,85,14,84,9,76,84,7,47,20,7</initialvalueenc>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="9518fb90-a726-4ac0-8988-2cf27eca75f6" name="List messages" type="Action">
+    <subsheetid>ddc410e7-6e76-4742-b42d-90ca619261cf</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="15" y="15" />
+    <outputs>
+      <output type="collection" name="Emails" friendlyname="Emails" stage="Emails" />
+    </outputs>
+    <onsuccess>1325a150-4e19-4c4e-bb1a-2beb88858aec</onsuccess>
+    <resource object="Email - POP3/SMTP" action="List Messages" />
+  </stage>
+  <stage stageid="a0c63112-58ad-4a96-afcc-7d34e02e2198" name="Emails" type="Collection">
+    <subsheetid>ddc410e7-6e76-4742-b42d-90ca619261cf</subsheetid>
+    <display x="120" y="-75" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Subject" type="text" description="The subject of the email." />
+      <field name="From Name" type="text" description="The name of the sender." />
+      <field name="From Address" type="text" description="The email address of the sender." />
+      <field name="Date Sent" type="datetime" description="The date and time at which the email was sent." />
+      <field name="MessageID" type="text" description="The ID of the email message." />
+    </collectioninfo>
+  </stage>
+  <stage stageid="34a4b099-593f-4bb6-a1f3-0237e2e159ef" name="List messages" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="-75" />
+    <outputs>
+      <output type="collection" name="Emails" friendlyname="Emails" stage="Emails" />
+    </outputs>
+    <onsuccess>ba4fda7b-591b-4ccd-b416-480b5e6c66b0</onsuccess>
+    <resource object="Email - POP3/SMTP" action="List Messages" />
+  </stage>
+  <stage stageid="07c88d4c-203e-486d-b040-177c689e1342" name="Emails" type="Collection">
+    <display x="-60" y="-165" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Subject" type="text" description="The subject of the email." />
+      <field name="From Name" type="text" description="The name of the sender." />
+      <field name="From Address" type="text" description="The email address of the sender." />
+      <field name="Date Sent" type="datetime" description="The date and time at which the email was sent." />
+      <field name="MessageID" type="text" description="The ID of the email message." />
+    </collectioninfo>
+  </stage>
+  <stage stageid="fe795ced-f696-43f7-a443-e91bb4a08ee9" name="Email Body text" type="Collection">
+    <display x="-150" y="-165" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Message ID" type="text" />
+      <field name="Body text" type="text" />
+      <field name="Content Type" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="d80e3257-73a1-41c1-ae80-e74fa81cd5bd" name="Read Mail Body" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="-210" y="-30" />
+    <inputs>
+      <input type="text" name="MessageID" friendlyname="MessageID" narrative="The ID of the message to retrieve." expr="[Emails.MessageID]" />
+      <input type="flag" name="HTMLPreferred" friendlyname="HTMLPreferred" narrative="Return HTML content in preference to plain text (multipart messages only)" expr="False" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Body" friendlyname="Body" narrative="The email body" stage="Body" />
+      <output type="text" name="Content-Type" friendlyname="Content-Type" narrative="The content type of the returned body (e.g. text/plain)" stage="Content-Type" />
+    </outputs>
+    <onsuccess>19289c71-f5cb-46d0-b82c-ba0f50f7ee65</onsuccess>
+    <resource object="Email - POP3/SMTP" action="Get Message" />
+  </stage>
+  <stage stageid="ae1bf8e4-a539-464f-a7dc-176b924b9329" name="Content-Type" type="Data">
+    <display x="-60" y="-120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4e8d7636-c49b-42c4-ae28-2c80a4fe9698" name="Body" type="Data">
+    <display x="-150" y="-120" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ba4fda7b-591b-4ccd-b416-480b5e6c66b0" name="Loop Start1" type="LoopStart">
+    <loginhibit onsuccess="true" />
+    <display x="-285" y="-30" />
+    <onsuccess>d80e3257-73a1-41c1-ae80-e74fa81cd5bd</onsuccess>
+    <groupid>c09624ab-087b-4fd2-b6a6-ce511d19127b</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Emails</loopdata>
+  </stage>
+  <stage stageid="ab5211fd-af0f-4f77-a2b8-4dc33cbc1d85" name="Loop End1" type="LoopEnd">
+    <loginhibit onsuccess="true" />
+    <display x="90" y="-30" />
+    <onsuccess>0d5b6126-3ad6-4fc9-90d4-f7710a922876</onsuccess>
+    <groupid>c09624ab-087b-4fd2-b6a6-ce511d19127b</groupid>
+  </stage>
+  <stage stageid="19289c71-f5cb-46d0-b82c-ba0f50f7ee65" name="Add empty row" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="-135" y="-30" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;Email Body text&quot;" />
+    </inputs>
+    <onsuccess>0a4debed-2b3a-4a4c-9af6-520dce4927ba</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="0a4debed-2b3a-4a4c-9af6-520dce4927ba" name="Assign data to collection record" type="MultipleCalculation">
+    <loginhibit onsuccess="true" />
+    <display x="-60" y="-30" />
+    <onsuccess>d748c8c9-d85a-40cf-97a1-99de757e1f6a</onsuccess>
+    <steps>
+      <calculation expression="[Emails.MessageID]" stage="Email Body text.Message ID" />
+      <calculation expression="[Body]" stage="Email Body text.Body text" />
+      <calculation expression="[Content-Type]" stage="Email Body text.Content Type" />
+    </steps>
+  </stage>
+  <stage stageid="d748c8c9-d85a-40cf-97a1-99de757e1f6a" name="Save Attachments" type="Action">
+    <loginhibit onsuccess="true" />
+    <display x="15" y="-30" />
+    <inputs>
+      <input type="text" name="MessageID" friendlyname="MessageID" narrative="The ID of the email message." expr="[Emails.MessageID]" />
+      <input type="text" name="Folder" friendlyname="Folder" narrative="A Folder in which to save all the attachments." expr="&quot;C:\Users\Roope Luokkamäki\Documents\Koulu\Tekoäly\AttachmentsTest&quot;" />
+    </inputs>
+    <onsuccess>ab5211fd-af0f-4f77-a2b8-4dc33cbc1d85</onsuccess>
+    <resource object="Email - POP3/SMTP" action="Save Attachments" />
+  </stage>
+  <stage stageid="b739f8f5-2371-491f-84ff-d07b9ed4d3fb" name="Database" type="SubSheetInfo">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-480" y="-210" w="150" h="90" />
+  </stage>
+  <stage stageid="ec57855b-8075-4852-8a28-9e56fb7bd101" name="Start" type="Start">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-255" y="-165" />
+    <inputs>
+      <input type="collection" name="Data" stage="Email body text  -Result" />
+      <input type="collection" name="Datat2" stage="Emails -Result" />
+    </inputs>
+    <onsuccess>19665436-83d4-4771-8603-451a227b129b</onsuccess>
+  </stage>
+  <stage stageid="5bd34d73-9ba6-456b-9204-840af0d58a34" name="End" type="End">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-105" y="15" />
+  </stage>
+  <stage stageid="0d5b6126-3ad6-4fc9-90d4-f7710a922876" name="Database" type="SubSheet">
+    <loginhibit onsuccess="true" />
+    <display x="90" y="15" />
+    <inputs>
+      <input type="collection" name="Data" friendlyname="Data" expr="[Email Body text]" />
+      <input type="collection" name="Datat2" friendlyname="Datat2" expr="[Emails]" />
+    </inputs>
+    <onsuccess>9fcea537-b172-4597-a620-549564c97e7b</onsuccess>
+    <processid>96ab6711-d303-426a-9acd-83bc4822eb21</processid>
+  </stage>
+  <stage stageid="19665436-83d4-4771-8603-451a227b129b" name="Data - SQL Server::Set Connection" type="Action">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-180" y="-165" />
+    <inputs>
+      <input type="text" name="Server" friendlyname="Server" narrative="The name of the server and, if necessary, instance name of the SQL Server instance to connect to" expr="&quot;DESKTOP-B1DUV5Q\SQLEXPRESS&quot;" />
+      <input type="text" name="Database" friendlyname="Database" narrative="The name of the database to connect to" expr="&quot;EmailDB&quot;" />
+      <input type="text" name="User" friendlyname="User" narrative="If appropriate, the login name to use to connect to SQL Server. If left empty, windows authentication using the current user will be used instead of SQL Server authentication" expr="" />
+      <input type="password" name="Password" friendlyname="Password" narrative="If appropriate, the password to use with the above login name to access SQL Server. Unused for windows authentication" expr="" />
+    </inputs>
+    <onsuccess>c4f116db-637f-4d63-b630-552af8de9787</onsuccess>
+    <resource object="Data - SQL Server" action="Set Connection" />
+  </stage>
+  <stage stageid="9d9d8228-f135-42d6-9776-0b65da6f1f94" name="Create tables" type="Action">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-30" y="-165" />
+    <inputs>
+      <input type="text" name="Query" friendlyname="Query" narrative="The SQL query to use to perform this action" expr="&quot;DROP TABLE IF EXISTS Emails;&#xA;CREATE TABLE Emails (&#xA;	Subject VARCHAR(MAX), &#xA;	FromName VARCHAR(MAX), &#xA;	FromAddress VARCHAR(MAX), &#xA;	DateSent datetime,&#xA;	MessageID VARCHAR(MAX)&#xA;	);&#xA;&#xA;DROP TABLE IF EXISTS EmailBodyText;&#xA;CREATE TABLE EmailBodyText (&#xA;	MessageID VARCHAR(MAX), &#xA;	BodyText VARCHAR(MAX), &#xA;	ContentType VARCHAR(MAX)&#xA;	);&#xA;&#xA;DROP TABLE IF EXISTS InvoicePdf;&#xA;CREATE TABLE InvoicePdf (&#xA;	InvoiceID int, &#xA;	ReceiverName VARCHAR(MAX), &#xA;	ReceiverAddress VARCHAR(MAX), &#xA;	ReceiverPhone VARCHAR(MAX),&#xA;	ServiceDescription VARCHAR(MAX),&#xA;	Total float&#xA;	)&quot;" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Flag indicating success (True) or failure (False)" stage="" />
+      <output type="text" name="Message" friendlyname="Message" narrative="Error message giving detail regarding why this action failed" stage="" />
+    </outputs>
+    <onsuccess>4d7a9741-3d80-49b9-8ec1-88aa5841eeed</onsuccess>
+    <resource object="Data - SQL Server" action="Execute" />
+  </stage>
+  <stage stageid="c4f116db-637f-4d63-b630-552af8de9787" name="Data - SQL Server::Open" type="Action">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="-165" />
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Flag indicating success (True) or failure (False)" stage="OpenSuccess" />
+      <output type="text" name="Message" friendlyname="Message" narrative="Error message giving detail regarding why this action failed" stage="" />
+    </outputs>
+    <onsuccess>9d9d8228-f135-42d6-9776-0b65da6f1f94</onsuccess>
+    <resource object="Data - SQL Server" action="Open" />
+  </stage>
+  <stage stageid="f3ebc8a5-81cb-4d86-ba45-58a13469d4ec" name="OpenSuccess" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-585" y="-105" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="6ffdfc14-7f18-4744-8ec1-be7400dcab72" name="Data - SQL Server::Close" type="Action">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-30" y="15" />
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Flag indicating success (True) or failure (False)" stage="CloseSuccess" />
+      <output type="text" name="Message" friendlyname="Message" narrative="Error message giving detail regarding why this action failed" stage="" />
+    </outputs>
+    <onsuccess>5bd34d73-9ba6-456b-9204-840af0d58a34</onsuccess>
+    <resource object="Data - SQL Server" action="Close" />
+  </stage>
+  <stage stageid="cf4ec4c2-d37d-4d19-b88f-7f11d72a3f08" name="CloseSuccess" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-360" y="-105" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="686c5855-2170-4a00-a5f1-52085733cb65" name="Insert data into database" type="Action">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="-45" />
+    <inputs>
+      <input type="text" name="Query" friendlyname="Query" narrative="The SQL query to use to perform this action" expr="&quot;INSERT INTO EmailBodyText VALUES ('&quot;&amp;[MessageID]&amp;&quot;','&quot;&amp;Replace([BodyText],&quot;'&quot;,&quot;''&quot;)&amp;&quot;','&quot;&amp;[ContentType]&amp;&quot;')&quot;" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Flag indicating success (True) or failure (False)" stage="BodyTextInsertSuccess" />
+      <output type="text" name="Message" friendlyname="Message" narrative="Error message giving detail regarding why this action failed" stage="BodyTextInsertMessage" />
+    </outputs>
+    <onsuccess>6b00279b-a8f5-4996-aff7-6d969e3754ec</onsuccess>
+    <resource object="Data - SQL Server" action="Execute" />
+  </stage>
+  <stage stageid="1bb3f7cc-b6d5-4db6-9da0-9796ef0e5106" name="MessageID" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="60" y="-75" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4c38f230-907e-4f4c-895d-1b6fd34ae363" name="BodyText" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="105" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="5b92fe55-9fde-4527-9bde-28b17d41275c" name="ContentType" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="165" y="-45" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="eac1f0ec-e46e-4bcd-b5b4-cc90cd5de04c" name="Email body text  -Result" type="Collection">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-270" y="-210" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="ca22b7f5-a48b-4df4-a312-5cf120db1d55" name="Assign data to data items" type="MultipleCalculation">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-180" y="-45" />
+    <onsuccess>686c5855-2170-4a00-a5f1-52085733cb65</onsuccess>
+    <steps>
+      <calculation expression="[Email body text  -Result.Message ID]" stage="MessageID" />
+      <calculation expression="[Email body text  -Result.Body text]" stage="BodyText" />
+      <calculation expression="[Email body text  -Result.Content Type]" stage="ContentType" />
+    </steps>
+  </stage>
+  <stage stageid="cfde6d7c-54c0-4394-a213-b0998516e98d" name="Email body text loop" type="LoopStart">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="-45" />
+    <onsuccess>ca22b7f5-a48b-4df4-a312-5cf120db1d55</onsuccess>
+    <groupid>68f1d0f1-33e2-46da-a04e-27e0c48a5a54</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Email body text  -Result</loopdata>
+  </stage>
+  <stage stageid="6b00279b-a8f5-4996-aff7-6d969e3754ec" name="Email body text loop" type="LoopEnd">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-30" y="-45" />
+    <onsuccess>6ffdfc14-7f18-4744-8ec1-be7400dcab72</onsuccess>
+    <groupid>68f1d0f1-33e2-46da-a04e-27e0c48a5a54</groupid>
+  </stage>
+  <stage stageid="e92b684d-e4cd-4a1a-924b-677cb8ca9f5c" name="Insert data into database" type="Action">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-180" y="-105" />
+    <inputs>
+      <input type="text" name="Query" friendlyname="Query" narrative="The SQL query to use to perform this action" expr="&quot;&#xA;DECLARE @inputString NVARCHAR(50) = '&quot;&amp;[DateSent]&amp;&quot;';&#xA;DECLARE @modifiedString NVARCHAR(50);&#xA;&#xA;DECLARE @datePart NVARCHAR(20) = LEFT(@inputString, CHARINDEX(' ', @inputString) - 1);&#xA;DECLARE @timePart NVARCHAR(20) = RIGHT(@inputString, LEN(@inputString) - CHARINDEX(' ', @inputString));&#xA;&#xA;SET @timePart = REPLACE(@timePart, '.', ':');&#xA;SET @modifiedString = @datePart + ' ' + @timePart;&#xA;&#xA;INSERT INTO Emails (Subject, FromName, FromAddress, DateSent, MessageID) VALUES ('&quot;&amp;[Subject]&amp;&quot;','&quot;&amp;[FromName]&amp;&quot;','&quot;&amp;[FromAddress]&amp;&quot;', CONVERT(datetime, @modifiedString, 104), '&quot;&amp;[MessageID]&amp;&quot;')&quot;" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Success" friendlyname="Success" narrative="Flag indicating success (True) or failure (False)" stage="EmailsInsertSuccess" />
+      <output type="text" name="Message" friendlyname="Message" narrative="Error message giving detail regarding why this action failed" stage="EmailsInsertMessage" />
+    </outputs>
+    <onsuccess>5e20ae75-2f39-489f-8e9a-c5047c5105b2</onsuccess>
+    <resource object="Data - SQL Server" action="Execute" />
+  </stage>
+  <stage stageid="1bd5e578-e977-4305-9c5f-79d98266c1f1" name="Subject" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="135" y="-105" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="df19c2bb-80fc-43ea-9ba4-ba86d82c4bc8" name="FromName" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="195" y="-105" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="27859a4a-0d25-448b-9b56-76c3ada4d611" name="FromAddress" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="255" y="-105" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="21d4cc79-61fb-48e3-80b4-6723a4c4008f" name="DateSent" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="315" y="-105" />
+    <datatype>datetime</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="557671d4-2c54-4268-b5b1-b0bb7060a960" name="EmailsInsertSuccess" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-510" y="-105" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="35972bbb-e3e4-4943-9875-fd3b719fae90" name="BodyTextInsertSuccess" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-435" y="-105" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="11588266-1918-48d7-aba7-3a345e804e10" name="EmailsInsertMessage" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-525" y="-60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="33a2952d-4975-4ced-b79a-6d0b23ec700a" name="BodyTextInsertMessage" type="Data">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-450" y="-60" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="366d166b-352c-4aa9-b1ff-618a85587ed8" name="Emails -Result" type="Collection">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <display x="-345" y="-210" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="4da9edc3-5cb6-4eb6-9026-4cde56214289" name="Assign data to data items" type="MultipleCalculation">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-105" y="-105" />
+    <onsuccess>e92b684d-e4cd-4a1a-924b-677cb8ca9f5c</onsuccess>
+    <steps>
+      <calculation expression="[Emails -Result.Subject]" stage="Subject" />
+      <calculation expression="[Emails -Result.From Name]" stage="FromName" />
+      <calculation expression="[Emails -Result.From Address]" stage="FromAddress" />
+      <calculation expression="[Emails -Result.Date Sent]" stage="DateSent" />
+      <calculation expression="[Emails -Result.MessageID]" stage="MessageID" />
+    </steps>
+  </stage>
+  <stage stageid="4d7a9741-3d80-49b9-8ec1-88aa5841eeed" name="Emails loop" type="LoopStart">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-30" y="-105" />
+    <onsuccess>4da9edc3-5cb6-4eb6-9026-4cde56214289</onsuccess>
+    <groupid>d07ab0c8-b7e4-4f76-a2a0-209c934ce8a2</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Emails -Result</loopdata>
+  </stage>
+  <stage stageid="5e20ae75-2f39-489f-8e9a-c5047c5105b2" name="Emails loop" type="LoopEnd">
+    <subsheetid>96ab6711-d303-426a-9acd-83bc4822eb21</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="-255" y="-105" />
+    <onsuccess>cfde6d7c-54c0-4394-a213-b0998516e98d</onsuccess>
+    <groupid>d07ab0c8-b7e4-4f76-a2a0-209c934ce8a2</groupid>
+  </stage>
+</process>
