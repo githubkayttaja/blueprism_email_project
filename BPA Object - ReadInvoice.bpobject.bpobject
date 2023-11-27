@@ -139,7 +139,7 @@
               <ProcessValue datatype="text" value="" />
             </attribute>
             <attribute name="LocationMethod" inuse="True" system="True">
-              <ProcessValue datatype="text" value="Image" />
+              <ProcessValue datatype="text" value="Coordinates" />
             </attribute>
             <attribute name="RegionPosition" inuse="True" system="True">
               <ProcessValue datatype="text" value="Fixed" />
@@ -290,7 +290,7 @@
               <ProcessValue datatype="text" value="" />
             </attribute>
             <attribute name="LocationMethod" inuse="True" system="True">
-              <ProcessValue datatype="text" value="Image" />
+              <ProcessValue datatype="text" value="Coordinates" />
             </attribute>
             <attribute name="RegionPosition" inuse="True" system="True">
               <ProcessValue datatype="text" value="Fixed" />
@@ -441,7 +441,7 @@
               <ProcessValue datatype="text" value="" />
             </attribute>
             <attribute name="LocationMethod" inuse="True" system="True">
-              <ProcessValue datatype="text" value="Image" />
+              <ProcessValue datatype="text" value="Coordinates" />
             </attribute>
             <attribute name="RegionPosition" inuse="True" system="True">
               <ProcessValue datatype="text" value="Fixed" />
@@ -592,7 +592,7 @@
               <ProcessValue datatype="text" value="" />
             </attribute>
             <attribute name="LocationMethod" inuse="True" system="True">
-              <ProcessValue datatype="text" value="Image" />
+              <ProcessValue datatype="text" value="Coordinates" />
             </attribute>
             <attribute name="RegionPosition" inuse="True" system="True">
               <ProcessValue datatype="text" value="Fixed" />
@@ -743,7 +743,7 @@
               <ProcessValue datatype="text" value="" />
             </attribute>
             <attribute name="LocationMethod" inuse="True" system="True">
-              <ProcessValue datatype="text" value="Image" />
+              <ProcessValue datatype="text" value="Coordinates" />
             </attribute>
             <attribute name="RegionPosition" inuse="True" system="True">
               <ProcessValue datatype="text" value="Fixed" />
@@ -894,7 +894,7 @@
               <ProcessValue datatype="text" value="" />
             </attribute>
             <attribute name="LocationMethod" inuse="True" system="True">
-              <ProcessValue datatype="text" value="Image" />
+              <ProcessValue datatype="text" value="Coordinates" />
             </attribute>
             <attribute name="RegionPosition" inuse="True" system="True">
               <ProcessValue datatype="text" value="Fixed" />
@@ -1221,7 +1221,7 @@ You will not be able to call this action from a business process, nor will it be
         <id>ReadTextOCR</id>
         <arguments>
           <argument>
-            <id>charwhitelist</id>
+            <id>language</id>
             <value>
             </value>
           </argument>
@@ -1231,7 +1231,7 @@ You will not be able to call this action from a business process, nor will it be
             </value>
           </argument>
           <argument>
-            <id>language</id>
+            <id>charwhitelist</id>
             <value>
             </value>
           </argument>
@@ -1242,11 +1242,6 @@ You will not be able to call this action from a business process, nor will it be
           </argument>
           <argument>
             <id>scale</id>
-            <value>
-            </value>
-          </argument>
-          <argument>
-            <id>font</id>
             <value>
             </value>
           </argument>
