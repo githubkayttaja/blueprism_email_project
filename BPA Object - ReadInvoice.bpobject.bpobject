@@ -1072,7 +1072,7 @@
     <name>Action 1</name>
     <view>
       <camerax>283</camerax>
-      <cameray>-17</cameray>
+      <cameray>-95</cameray>
       <zoom version="2">1.25</zoom>
     </view>
   </subsheet>
@@ -1119,7 +1119,7 @@
   </stage>
   <stage stageid="0de879ba-4e31-410b-b7d6-adfffb4bcd91" name="Action 1" type="SubSheetInfo">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="-195" y="-105" w="150" h="90" />
+    <display x="-285" y="-345" w="150" h="90" />
   </stage>
   <stage stageid="edf1d1a0-fc86-4ab4-ac0d-f1db41e7c444" name="" type="Note">
     <subsheetid>afba0535-ac7b-40a6-b149-08d5caf2ae05</subsheetid>
@@ -1154,7 +1154,7 @@ You will not be able to call this action from a business process, nor will it be
         <arguments>
           <argument>
             <id>CommandLineParams</id>
-            <value>[FoundInvoices.Path]</value>
+            <value>[FixedInvoices.FixedPath]</value>
           </argument>
           <argument>
             <id>Path</id>
@@ -1388,7 +1388,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="a361d9e9-6953-4c1e-a3e9-765f8c171299" name="InvoiceID" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="570" y="-165" />
+    <display x="345" y="45" />
     <datatype>number</datatype>
     <initialvalue />
     <private />
@@ -1396,7 +1396,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="f232f09c-8bdc-4dfc-9637-e184e633d966" name="CustomerName" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="630" y="-165" />
+    <display x="345" y="0" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -1404,7 +1404,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="13d27e1e-53d9-4a30-9961-8783937beb44" name="CustomerAddress" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="690" y="-165" />
+    <display x="345" y="-45" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -1412,7 +1412,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="14baed49-1cfa-4217-886c-0da8328cee19" name="CustomerPhone" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="750" y="-165" />
+    <display x="345" y="-90" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -1420,7 +1420,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="4caf31b7-9965-4326-86c0-25a7d632083d" name="InvoiceDescription" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="810" y="-165" />
+    <display x="345" y="-135" />
     <datatype>text</datatype>
     <initialvalue />
     <private />
@@ -1428,7 +1428,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="6f14c914-5b72-43e6-a34e-b095ccf20943" name="TotalCost" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="870" y="-165" />
+    <display x="345" y="-180" />
     <datatype>number</datatype>
     <initialvalue />
     <private />
@@ -1436,13 +1436,13 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="28518835-c0fc-4b33-9d21-1f6d403e7521" name="Start" type="Start">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="-150" y="0" />
+    <display x="-255" y="60" />
     <onsuccess>1bce7162-ac44-4802-9c4c-830dbb94363d</onsuccess>
   </stage>
   <stage stageid="b2ae5b65-8367-47c3-9ffb-010a0e82477f" name="Setup" type="Action">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="15" y="-255" />
+    <display x="-150" y="-285" />
     <inputs>
       <input type="text" name="Username" friendlyname="Username" narrative="The POP3 and SMTP Username" expr="[Username]" />
       <input type="password" name="Password" friendlyname="Password" narrative="The POP3 and SMTP Password" expr="[App Password]" />
@@ -1459,7 +1459,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="723b273e-63b5-4204-b70e-93ac65ab4b72" name="Username" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="15" y="-315" />
+    <display x="-150" y="-345" />
     <datatype>text</datatype>
     <initialvalue xml:space="preserve">ramonemarkku@gmail.com</initialvalue>
     <private />
@@ -1468,7 +1468,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="80c955c1-2d11-4aa4-9e61-1532e99f9c59" name="App Password" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="15" y="-360" />
+    <display x="-150" y="-390" />
     <datatype>password</datatype>
     <initialvalueenc>42,25,1,71,77,76,18,21,44,85,14,84,9,76,84,7,47,20,7</initialvalueenc>
     <private />
@@ -1477,7 +1477,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="918b945e-a4fc-4f2b-a772-621450fe75b1" name="List messages" type="Action">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="90" y="-255" />
+    <display x="-75" y="-285" />
     <outputs>
       <output type="collection" name="Emails" friendlyname="Emails" stage="Emails" />
     </outputs>
@@ -1486,7 +1486,7 @@ You will not be able to call this action from a business process, nor will it be
   </stage>
   <stage stageid="dca74dcf-0a67-4dea-a5c1-240273ed9b3f" name="Emails" type="Collection">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
-    <display x="240" y="-315" />
+    <display x="75" y="-345" />
     <datatype>collection</datatype>
     <private />
     <alwaysinit />
@@ -1501,7 +1501,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="c7bd4ba9-2ac3-45a9-9be3-75af88131a2e" name="Loop Start1" type="LoopStart">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="165" y="-255" />
+    <display x="0" y="-285" />
     <onsuccess>5d4d9598-4e51-4110-9c73-8b79f3d80695</onsuccess>
     <groupid>660b77b5-a3ac-44c0-aad2-9add91de5813</groupid>
     <looptype>ForEach</looptype>
@@ -1510,14 +1510,14 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="202a229d-fd35-4b14-9aad-744b03ea051d" name="Loop End1" type="LoopEnd">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="315" y="-255" />
+    <display x="150" y="-285" />
     <onsuccess>f810a5d2-35dd-469e-8423-17c34c9fa9fb</onsuccess>
     <groupid>660b77b5-a3ac-44c0-aad2-9add91de5813</groupid>
   </stage>
   <stage stageid="5d4d9598-4e51-4110-9c73-8b79f3d80695" name="Save Attachments" type="Action">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="240" y="-255" />
+    <display x="75" y="-285" />
     <inputs>
       <input type="text" name="MessageID" friendlyname="MessageID" narrative="The ID of the email message." expr="[Emails.MessageID]" />
       <input type="text" name="Folder" friendlyname="Folder" narrative="A Folder in which to save all the attachments." expr="[AttachmentPath]" />
@@ -1528,12 +1528,12 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="f810a5d2-35dd-469e-8423-17c34c9fa9fb" name="End1" type="End">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="315" y="-195" />
+    <display x="150" y="-225" />
   </stage>
   <stage stageid="1bce7162-ac44-4802-9c4c-830dbb94363d" name="Get Attachments From Folder" type="Action">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="-45" y="0" />
+    <display x="-150" y="60" />
     <inputs>
       <input type="text" name="Folder" friendlyname="Folder" narrative="The folder in which to look for files" expr="[AttachmentPath]" />
       <input type="text" name="Patterns CSV" friendlyname="Patterns CSV" narrative="The comma seperated list of wildcard patterns" expr="[Pattern]" />
@@ -1549,7 +1549,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="6e6c0ce2-2c59-48dc-ac7a-a5a953b2e465" name="Pattern" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="660" y="-210" />
+    <display x="-255" y="15" />
     <datatype>text</datatype>
     <initialvalue xml:space="preserve">*.pdf</initialvalue>
     <private />
@@ -1558,7 +1558,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="17fedba3-af4b-414c-bb45-3286cfbc97aa" name="AttachmentPath" type="Data">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="735" y="-210" />
+    <display x="-255" y="-30" />
     <datatype>text</datatype>
     <initialvalue xml:space="preserve">D:\blueprism_tyo\attachments</initialvalue>
     <private />
@@ -1567,7 +1567,7 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="be92cb17-d304-41a5-ad48-2b06cbc22e98" name="FoundInvoices" type="Collection">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="810" y="-210" />
+    <display x="-150" y="15" />
     <datatype>collection</datatype>
     <private />
     <alwaysinit />
@@ -1575,28 +1575,28 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="a3184ced-6341-4078-99fe-810968834e30" name="Loop Start2" type="LoopStart">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="255" y="0" />
+    <display x="150" y="60" />
     <onsuccess>6f168a2c-cf30-49ac-b9c5-ff105b2c3039</onsuccess>
     <groupid>49f4839b-d045-488f-85ea-a95645c1c2fd</groupid>
     <looptype>ForEach</looptype>
-    <loopdata>FoundInvoices</loopdata>
+    <loopdata>FixedInvoices</loopdata>
   </stage>
   <stage stageid="cdf9364c-a313-4653-a5b6-89d94c7a75ec" name="Loop End2" type="LoopEnd">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="450" y="0" />
+    <display x="765" y="60" />
     <onsuccess>4b1607cc-ce3d-4d9c-9ade-5e4bb6901026</onsuccess>
     <groupid>49f4839b-d045-488f-85ea-a95645c1c2fd</groupid>
   </stage>
   <stage stageid="4b1607cc-ce3d-4d9c-9ade-5e4bb6901026" name="End2" type="End">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
-    <display x="555" y="0" />
+    <display x="870" y="60" />
   </stage>
   <stage stageid="39ad39b7-1c9c-47af-a57c-96074046cb11" name="Utility - Collection Manipulation::Rename Collection Fields" type="Action">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="45" y="0" />
+    <display x="-60" y="60" />
     <inputs>
       <input type="collection" name="Main Collection" friendlyname="Main Collection" narrative="The main collection, whose headers are to be modified" expr="[FoundInvoices]" />
       <input type="collection" name="New Headers" friendlyname="New Headers" narrative="A collection of new headers. This must be a one-row collection matching the fields of the first. The first row will contain the new field names under the corresponding field names" expr="[NewHeaders]" />
@@ -1612,11 +1612,11 @@ You will not be able to call this action from a business process, nor will it be
   <stage stageid="7b813b22-492e-4f3e-9f94-cb51b21c8825" name="Utility - Collection Manipulation::Rename Field" type="Action">
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit onsuccess="true" />
-    <display x="150" y="0" />
+    <display x="45" y="60" />
     <inputs>
       <input type="text" name="Field Name" friendlyname="Field Name" narrative="The name of the existing field to rename." expr="&quot;Path&quot;" />
       <input type="collection" name="Collection In" friendlyname="Collection In" narrative="The collection to rename a field in." expr="[FoundInvoices]" />
-      <input type="text" name="New Name" friendlyname="New Name" narrative="The new name for the field." expr="&quot;asd&quot;" />
+      <input type="text" name="New Name" friendlyname="New Name" narrative="The new name for the field." expr="&quot;FixedPath&quot;" />
     </inputs>
     <outputs>
       <output type="collection" name="Collection Out" friendlyname="Collection Out" narrative="The collection with field renamed." stage="FixedInvoices" />
@@ -1628,7 +1628,7 @@ You will not be able to call this action from a business process, nor will it be
     <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
     <loginhibit />
     <display x="450" y="90" />
-    <onsuccess>cdf9364c-a313-4653-a5b6-89d94c7a75ec</onsuccess>
+    <onsuccess>b2313210-816c-41af-b9c9-2726a9cbca03</onsuccess>
     <step>
       <element id="01bc884e-a5d4-4207-a108-9bf1db2c5b82" />
       <action>
@@ -1646,5 +1646,77 @@ You will not be able to call this action from a business process, nor will it be
         </arguments>
       </action>
     </step>
+  </stage>
+  <stage stageid="c6bb7cd5-e258-4fb8-8cfe-3b44edc4559d" name="InvoiceData" type="Collection">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="555" y="45" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="InvoiceID" type="number" />
+      <field name="CustomerName" type="text" />
+      <field name="CustomerAddress" type="text" />
+      <field name="CustomerPhone" type="text" />
+      <field name="InvoiceDescription" type="text" />
+      <field name="TotalCost" type="number" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="b2313210-816c-41af-b9c9-2726a9cbca03" name="Add Row Into Invoices-Collection" type="Action">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit onsuccess="true" />
+    <display x="555" y="90" />
+    <inputs>
+      <input type="text" name="Collection Name" friendlyname="Collection Name" narrative="The name of the collection to act upon" expr="&quot;InvoiceData&quot;" />
+    </inputs>
+    <onsuccess>8bfa2f85-e1fe-4099-a147-b73fb928ad68</onsuccess>
+    <resource object="Blueprism.AutomateProcessCore.clsCollectionActions" action="Add Row" />
+  </stage>
+  <stage stageid="8bfa2f85-e1fe-4099-a147-b73fb928ad68" name="Save Invoice Data to Collection" type="MultipleCalculation">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="660" y="90" />
+    <onsuccess>cdf9364c-a313-4653-a5b6-89d94c7a75ec</onsuccess>
+    <steps>
+      <calculation expression="[InvoiceID]" stage="InvoiceData.InvoiceID" />
+      <calculation expression="[CustomerName]" stage="InvoiceData.CustomerName" />
+      <calculation expression="[CustomerAddress]" stage="InvoiceData.CustomerAddress" />
+      <calculation expression="[CustomerPhone]" stage="InvoiceData.CustomerPhone" />
+      <calculation expression="[InvoiceDescription]" stage="InvoiceData.InvoiceDescription" />
+      <calculation expression="[TotalCost]" stage="InvoiceData.TotalCost" />
+    </steps>
+  </stage>
+  <stage stageid="6b49eae5-f921-4c3c-bc90-3397d0757173" name="NewHeaders" type="Collection">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="-255" y="-75" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
+    <collectioninfo>
+      <field name="Path" type="text" />
+      <field name="Folder" type="text" />
+      <field name="Name" type="text" />
+      <field name="Extension" type="text" />
+      <field name="Created" type="text" />
+    </collectioninfo>
+    <initialvalue>
+      <row>
+        <field name="Path" type="text" value="myPath" />
+        <field name="Folder" type="text" value="myFolder" />
+        <field name="Name" type="text" value="myName" />
+        <field name="Extension" type="text" value="myExtension" />
+        <field name="Created" type="text" value="myCreated" />
+      </row>
+    </initialvalue>
+  </stage>
+  <stage stageid="3f95c50e-caae-4f1b-b32c-8b85ed26b23f" name="FixedInvoices" type="Collection">
+    <subsheetid>35331b6e-f21b-4011-8dc3-0117c814ca7a</subsheetid>
+    <loginhibit />
+    <display x="660" y="45" />
+    <datatype>collection</datatype>
+    <private />
+    <alwaysinit />
   </stage>
 </process>
