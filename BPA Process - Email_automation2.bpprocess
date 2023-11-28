@@ -1,4 +1,4 @@
-﻿<process name="Email_automation" version="1.0" bpversion="7.2.1.7446" narrative="" byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="b3176b55-1cd2-4fc5-9780-2f498f5bafda">
+﻿<process name="Email_automation2" version="1.0" bpversion="7.2.1.7446" narrative="" byrefcollection="true" processrunningmessage="" disableversioning="false" preferredid="57395b48-5ece-4a3c-aaa9-0c0537fb3359">
   <view>
     <camerax>-7</camerax>
     <cameray>-61</cameray>
@@ -312,7 +312,7 @@
     <loginhibit onsuccess="true" />
     <display x="-30" y="-165" />
     <inputs>
-      <input type="text" name="Query" friendlyname="Query" narrative="The SQL query to use to perform this action" expr="&quot;DROP TABLE IF EXISTS Emails;&#xA;CREATE TABLE Emails (&#xA;	Subject VARCHAR(MAX), &#xA;	FromName VARCHAR(MAX), &#xA;	FromAddress VARCHAR(MAX), &#xA;	DateSent datetime,&#xA;	MessageID VARCHAR(MAX)&#xA;	);&#xA;&#xA;DROP TABLE IF EXISTS EmailBodyText;&#xA;CREATE TABLE EmailBodyText (&#xA;	MessageID VARCHAR(MAX), &#xA;	BodyText VARCHAR(MAX), &#xA;	ContentType VARCHAR(MAX)&#xA;	);&#xA;&#xA;DROP TABLE IF EXISTS InvoicePdf;&#xA;CREATE TABLE InvoicePdf (&#xA;	InvoiceID int, &#xA;	ReceiverName VARCHAR(MAX), &#xA;	ReceiverAddress VARCHAR(MAX), &#xA;	ReceiverPhone VARCHAR(MAX),&#xA;	ServiceDescription VARCHAR(MAX),&#xA;	Total float&#xA;	)&quot;" />
+      <input type="text" name="Query" friendlyname="Query" narrative="The SQL query to use to perform this action" expr="&quot;DROP TABLE IF EXISTS Emails;&#xA;CREATE TABLE Emails (&#xA;	Subject VARCHAR(MAX), &#xA;	FromName VARCHAR(MAX), &#xA;	FromAddress VARCHAR(MAX), &#xA;	DateSent datetime,&#xA;	MessageID VARCHAR(MAX)&#xA;	);&#xA;&#xA;DROP TABLE IF EXISTS EmailBodyText;&#xA;CREATE TABLE EmailBodyText (&#xA;	MessageID VARCHAR(MAX), &#xA;	BodyText VARCHAR(MAX), &#xA;	ContentType VARCHAR(MAX)&#xA;	);&quot;" />
     </inputs>
     <outputs>
       <output type="flag" name="Success" friendlyname="Success" narrative="Flag indicating success (True) or failure (False)" stage="" />
